@@ -15,39 +15,61 @@
  */
 package org.hoshi.xml.stream;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+
+import org.hoshi.xml.bookstore.Book;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest {
+    private static XMLReader reader;
+    
+    @BeforeClass
+    public static void setUpClass() {
+        reader = new XMLReader(new File("src/test/resources/bookstore.xml"));
     }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    
+    @Test
+    public static void testLoadBooks() 
+            throws FileNotFoundException, XMLStreamException, JAXBException {
+        reader.parse("Book", Book.class);
+        Assert.assertEquals(Book.books.size(), 5);
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    
+    @Test(dependsOnMethods="testLoadBooks")
+    public static void testSearchBook() {
+        int testid = 1121;
+        
+        Book found = null;
+        for (Book book : Book.books) {
+            if (book.getId() == testid) {
+                found = book;
+            }
+        }
+        
+        Assert.assertNotNull(found);
+    }
+    
+    @Test(dependsOnMethods="testLoadBooks")
+    public static void testBookTitle() {
+        int testid = 11;
+        
+        Book found = null;
+        for (Book book : Book.books) {
+            if (book.getId() == testid) {
+                found = book;
+            }
+        }
+        
+        Assert.assertEquals(found.getTitle(), "Neuromancer");
     }
 }

@@ -15,8 +15,10 @@
  */
 package org.hoshi.xml.bookstore;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -25,11 +27,23 @@ import org.hoshi.xml.stream.JAXBNode;
 
 @XmlRootElement(name="Book")
 public class Book extends JAXBNode {
+    public static List<Book> books = new ArrayList<Book>(); 
+    
+    private int id;
     private String title;    
     private Autor autor;    
     private int date;    
     private Publisher publisher;
     private List<Genre> genres;
+    
+    @XmlAttribute(name="id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @XmlElement(name="Title")
     public String getTitle() {
@@ -77,6 +91,6 @@ public class Book extends JAXBNode {
     }
     
     public void process() {
-        System.out.println(autor.getName() + ", " + title + ", " + genres);
+        books.add(this);
     }
 }
