@@ -45,6 +45,12 @@ public class AppTest {
         Assert.assertEquals(Book.books.size(), 5);
     }
     
+    @Test(expectedExceptions = XMLStreamException.class)
+    public static void testLoadBooksException() 
+            throws FileNotFoundException, XMLStreamException, JAXBException {
+        reader.parse("Cook", Book.class);
+    }
+    
     @Test(dependsOnMethods="testLoadBooks")
     public static void testSearchBook() {
         int testid = 1121;
