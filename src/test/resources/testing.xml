@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="XMLSRTestSuite" verbose="1" >
+  <test name="XMLSRTest">
+    <classes>
+      <class name="AppTest"/>
+    </classes>
+  </test>
+</suite>
