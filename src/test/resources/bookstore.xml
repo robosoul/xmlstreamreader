@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BookCatalogue>
+  <Book id="72">
+    <Title>The Hobbit</Title>
+    <Author id="10">J. R. R. Tolkien</Author>
+    <Date>1937</Date>
+    <Publisher id="4">George Allen &amp; Unwin</Publisher>    
+    <Genre Name="Fantasy" id="2"/>
+    <Genre Name="Children" id="91"/>  
+    <Genre Name="Adventure" id="4"/>  
+  </Book>
+  <Book id="1121">
+    <Title>The Fellowship of the Ring</Title>
+    <Author id="10">J. R. R. Tolkien</Author>
+    <Date>1954</Date>
+    <Publisher id="4">George Allen &amp; Unwin</Publisher>
+	<Genre Name="High Fantasy" id="1"/>
+	<Genre Name="Adventure" id="4"/>
+  </Book>  
+  <Book id="11">
+    <Title>Neuromancer</Title>
+    <Author id="88">William Gibson</Author>
+    <Date>1984</Date>
+    <Publisher id="2">Ace</Publisher>
+    <Genre Name="Cyberpunk" id="23"/>
+    <Genre Name="SF" id="14"/>
+  </Book>  
+  <Book id="93">
+    <Title>The Catcher in the Rye</Title>
+    <Author id="3">J. D. Salinger</Author>
+    <Date>1951</Date>
+    <Publisher id="4">Little, Brown and Company</Publisher>
+    <Genre Name="Novel" id="10"/>
+  </Book>  
+  <Book id="105">
+    <Title>Watchmen</Title>
+    <Author id="666">Alan Moore</Author>
+    <Date>1986</Date>
+    <Publisher id="4">DC Comics</Publisher>
+    <Genre Name="Comic book" id="7"/>
+    <Genre Name="Superhero" id="15"/>
+  </Book>
+</BookCatalogue> 
