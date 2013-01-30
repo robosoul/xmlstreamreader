@@ -1,4 +1,4 @@
 xmlstreamreader
 ===============
 
-StAX + JAXB JAVA XML Stream Reader implementation
+StAX + JAXB XML Stream Reader implementation
